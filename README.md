@@ -31,14 +31,14 @@ By integrating these system prompts into your work, you choose to put your consc
 5. Paste your chosen prompt in the "How would you like ChatGPT to respond?" field
 6. Click "Save"
 
-#### 🔍 Gemini
+#### 🧠 Perplexity
 
-1. Go to [Gemini](https://gemini.google.com/)
-2. Click on your profile picture in the top right
+1. Go to [Perplexity](https://www.perplexity.ai/)
+2. Click on your profile icon in the top right
 3. Select "Settings"
-4. Click on "Advanced" tab
-5. Under "Custom instructions," paste your chosen prompt
-6. Click "Save"
+4. Under "AI Preferences," find "Custom Instructions"
+5. Paste your chosen prompt version
+6. Click "Save" to apply changes
 
 ### For Developers
 
