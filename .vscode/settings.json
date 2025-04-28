@@ -95,5 +95,6 @@
     "titleBar.inactiveBackground": "#ff66b299",
     "titleBar.inactiveForeground": "#15202b99"
   },
-  "peacock.color": "#FF66B2"
+  "peacock.color": "#FF66B2",
+  "cSpell.words": ["PYPI", "setuptools"]
 }

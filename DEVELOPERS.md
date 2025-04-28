@@ -67,21 +67,65 @@ twine upload dist/*
 
 ### 4. Using GitHub Actions for Automatic Publishing
 
-Our repository is configured with GitHub Actions to automatically publish to PyPI when a new `releases/v*` tag is pushed. The workflow:
+Our repository is configured with GitHub Actions to automatically publish to PyPI when a new `releases/v*` tag is pushed.
+
+We use PyPI's recommended "trusted publishing" approach, which allows secure authentication without API tokens. The workflow:
 
 1. Detects the new tag
-2. Sets up Python
-3. Builds the package
-4. Publishes to PyPI using the stored API token
+2. Sets up Python and builds the package
+3. Publishes to PyPI using OpenID Connect (OIDC) authentication
 
-To make this work:
+#### Setting Up Trusted Publishing
 
-- Ensure the `PYPI_API_TOKEN` secret is set in your GitHub repository settings
-- Simply create and push a tag following the pattern `releases/v*`
+> **Note:** We're currently using the API token method for authentication. The instructions below are for future reference if you want to migrate to trusted publishing.
 
-### Setting Up Your PyPI API Token
+To set up trusted publishing in the future:
 
-PyPI no longer accepts username/password authentication. You must use API tokens:
+1. Create an environment in your GitHub repository settings:
+
+   - Go to Settings → Environments → New environment
+   - Name it `pypi`
+   - Add environment protection rules if desired
+
+2. Configure trusted publishing on PyPI:
+
+   - Log in to your PyPI account at https://pypi.org/
+   - Navigate to your project
+   - Go to "Settings" → "Publishing"
+   - Set up a new publisher with:
+     - Publisher: GitHub Actions
+     - Owner: TechNickAI
+     - Repository name: heart-centered-prompts
+     - Workflow name: Publish Python Package
+     - Environment name: pypi
+
+3. Modify the GitHub workflow file to use trusted publishing:
+   ```yaml
+   jobs:
+     deploy:
+       name: Upload release to PyPI
+       runs-on: ubuntu-latest
+       environment:
+         name: pypi
+         url: https://pypi.org/p/heart-centered-prompts
+       permissions:
+         id-token: write
+       steps:
+         # ... existing steps ...
+         - name: Publish package to PyPI
+           uses: pypa/gh-action-pypi-publish@v1.8.10
+           with:
+             packages-dir: python/dist/
+             # No password needed with trusted publishing
+             verbose: true
+             print-hash: true
+   ```
+
+No API tokens needed with trusted publishing - the connection between GitHub and PyPI is secured through OpenID Connect!
+
+#### Using API Tokens (Current Method)
+
+We're currently using API tokens for PyPI authentication. Here's how to set them up:
 
 1. Log in to your PyPI account at https://pypi.org/
 2. Go to Account Settings → API tokens
