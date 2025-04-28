@@ -1,14 +1,14 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=42", "wheel", "setuptools_scm>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "heart_centered_prompts"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Heart-centered system prompts for AI assistants"
 readme = "README.md"
 authors = [
-    {name = "TechnickAI"}
+    {name = "TechNickAI"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -24,6 +24,9 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 requires-python = ">=3.8"
+
+[tool.setuptools_scm]
+write_to = "heart_centered_prompts/_version.py"
 
 [project.urls]
 Homepage = "https://github.com/technickai/heart-centered-prompts"

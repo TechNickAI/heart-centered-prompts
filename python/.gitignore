@@ -1,0 +1,2 @@
+# These are built/copied over fromt he root, so don't check them in (see setup.py)
+heart_centered_prompts/prompts
