@@ -3,7 +3,7 @@ name: Publish Python Package
 on:
   push:
     tags:
-      - "releases/v*"
+      - "v*"
 
 jobs:
   deploy:
@@ -15,6 +15,11 @@ jobs:
         with:
           fetch-depth: 0 # Required for setuptools_scm to determine version from Git tags
 
+      - name: Debug Git tags
+        run: |
+          echo "Current tag: ${GITHUB_REF#refs/tags/}"
+          git tag -l
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -23,11 +28,13 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build
+          pip install build setuptools_scm
 
       - name: Build package
         working-directory: ./python
         run: |
+          # Print the version that will be used
+          python -c "from setuptools_scm import get_version; print(f'Version detected by setuptools_scm: {get_version(root=\"..\")}')"
           python -m build
 
       - name: Publish package to PyPI
@@ -37,3 +44,5 @@ jobs:
           password: ${{ secrets.PYPI_API_TOKEN }}
           verbose: true
           print-hash: true
+          # Uncomment this if you want to allow overwriting existing versions (not recommended)
+          # skip-existing: true

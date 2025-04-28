@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = "Heart-centered system prompts for AI assistants"
 readme = "README.md"
 authors = [
-    {name = "TechNickAI"}
+    {name = "TechnickAI"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -26,7 +26,9 @@ classifiers = [
 requires-python = ">=3.8"
 
 [tool.setuptools_scm]
-write_to = "heart_centered_prompts/_version.py"
+# Simple configuration for standard v* tags
+local_scheme = "no-local-version"
+fallback_version = "0.0.0"
 
 [project.urls]
 Homepage = "https://github.com/technickai/heart-centered-prompts"
