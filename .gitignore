@@ -3,9 +3,9 @@
 *.swo
 *.swp
 .DS_Store
+.next/
 .pytest_cache/
 .ruff_cache/
-.next/
 /build/
 /dist/
 Thumbs.db
