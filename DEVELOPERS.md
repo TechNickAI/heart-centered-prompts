@@ -79,6 +79,27 @@ To make this work:
 - Ensure the `PYPI_API_TOKEN` secret is set in your GitHub repository settings
 - Simply create and push a tag following the pattern `releases/v*`
 
+### Setting Up Your PyPI API Token
+
+PyPI no longer accepts username/password authentication. You must use API tokens:
+
+1. Log in to your PyPI account at https://pypi.org/
+2. Go to Account Settings → API tokens
+3. Click "Add API token"
+4. Set a token name (e.g., "GitHub Actions Upload")
+5. Select "Entire account (all projects)" or choose a specific project
+6. Copy the generated token (You'll only see it once!)
+
+Then add it to your GitHub repository:
+
+1. Go to your GitHub repository → Settings → Secrets and variables → Actions
+2. Click "New repository secret"
+3. Name: `PYPI_API_TOKEN`
+4. Value: (paste your PyPI token)
+5. Click "Add secret"
+
+The GitHub action is configured to use this token automatically.
+
 ## Working with Local Development Versions
 
 When developing locally:
