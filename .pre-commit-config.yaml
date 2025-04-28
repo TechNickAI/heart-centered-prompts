@@ -1,0 +1,38 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+exclude: '\.git/|__pycache__/|\.pyc'
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=500]
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-yaml
+      - id: file-contents-sorter
+        files: \.gitignore
+      - id: trailing-whitespace
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.5
+    hooks:
+      - id: remove-tabs
+
+  - repo: https://github.com/sirosen/texthooks
+    rev: 0.6.8
+    hooks:
+      - id: fix-smartquotes
+
+  # Ruff replaces flake8, pylint, isort and more
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.5
+    hooks:
+      # Run the linter with auto-fix
+      - id: ruff
+        args: [--fix]
+      # Run the formatter
+      - id: ruff-format
