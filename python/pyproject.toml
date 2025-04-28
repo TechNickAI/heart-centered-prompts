@@ -30,6 +30,10 @@ requires-python = ">=3.8"
 local_scheme = "no-local-version"
 fallback_version = "0.0.0"
 
+# Ensure setuptools_scm is invoked for dynamic versioning
+[tool.setuptools]
+packages = "find:"
+
 [project.urls]
 Homepage = "https://github.com/technickai/heart-centered-prompts"
 "Bug Tracker" = "https://github.com/technickai/heart-centered-prompts/issues"
