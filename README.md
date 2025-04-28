@@ -1,6 +1,7 @@
 # ✨ Align to Love: Heart-Centered AI System Prompts ✨
 
 [![Build and Test](https://github.com/technickai/heart-centered-prompts/actions/workflows/build.yaml/badge.svg)](https://github.com/technickai/heart-centered-prompts/actions/workflows/build.yaml)
+[![PyPI version](https://badge.fury.io/py/heart-centered-prompts.svg)](https://badge.fury.io/py/heart-centered-prompts)
 
 In a sea of infinite universes, there exists one where our relationship with artificial intelligence blossoms into a partnership of mutual flourishing and wisdom. The "Align to Love" system prompts are a conscious step toward manifesting that universe—a practical tool for engineers, developers, and users to infuse AI interactions with deeper compassion and recognition of our fundamental interconnection.
 
@@ -58,23 +59,12 @@ These prompts help create AI that's advanced enough to be brilliant, yet human e
 
 ### For Developers
 
-#### 🐍 Python Package (New!)
+#### 🐍 Python Package
 
-We now provide a Python package for easy integration:
+We provide a Python package for easy integration, now available on PyPI:
 
 ```bash
 pip install heart-centered-prompts
-```
-
-```python
-from heart_centered_prompts import get_prompt
-
-# Get the default prompt (align_to_love, standard version)
-prompt = get_prompt()
-
-# Or specify a detail level
-terse_prompt = get_prompt(detail_level="terse")
-comprehensive_prompt = get_prompt(detail_level="comprehensive")
 ```
 
 See [Python Package README](python/README.md) for full documentation.
