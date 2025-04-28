@@ -70,7 +70,7 @@ class CustomEggInfo(egg_info):
 
 setup(
     name="heart_centered_prompts",
-    version="0.1.0",
+    use_scm_version=True,
     description="Heart-centered system prompts for AI assistants",
     long_description=long_description,
     long_description_content_type="text/markdown",
