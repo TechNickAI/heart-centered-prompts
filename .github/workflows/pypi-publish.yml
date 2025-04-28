@@ -37,8 +37,9 @@ jobs:
           ls -al ../
 
       - name: Show .git directory and tags
+        continue-on-error: true
         run: |
-          ls -al ../.git
+          ls -al .git
           git tag -l
           git describe --tags --always --dirty
           git log --oneline -n 5
