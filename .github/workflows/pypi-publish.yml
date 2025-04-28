@@ -50,10 +50,17 @@ jobs:
 
       - name: Build package
         working-directory: ./python
+        env:
+          SETUPTOOLS_SCM_DEBUG: 1
         run: |
           # Print the version that will be used
           python -c "from setuptools_scm import get_version; print(f'Version detected by setuptools_scm: {get_version(root=\"..\")}')"
           python -m build
+          # Debug the built package names
+          echo "Built packages:"
+          ls -la dist/
+          echo "Package contents:"
+          unzip -l dist/*.whl | head -n 20
 
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
