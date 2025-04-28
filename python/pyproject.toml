@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Heart-centered system prompts for AI assistants"
 readme = "README.md"
 authors = [
-    {name = "TechnickAI", email = ""}  # Add email if desired
+    {name = "TechnickAI"}
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -122,10 +122,3 @@ format.docstring-code-format = true
 [tool.ruff.lint.per-file-ignores]
 "test_*.py" = ["PLR0915", "ARG001"]  # Test files can be longer and have unused function arguments
 "conftest.py" = ["ARG001"]  # Allow unused arguments in pytest hooks and fixtures
-
-[tool.mypy]
-python_version = "3.8"
-warn_return_any = true
-warn_unused_configs = true
-disallow_untyped_defs = true
-disallow_incomplete_defs = true

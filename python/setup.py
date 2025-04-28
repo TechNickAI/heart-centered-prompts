@@ -75,7 +75,6 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="TechnickAI",
-    author_email="",  # Add email if desired
     url="https://github.com/technickai/heart-centered-prompts",
     packages=find_packages(),
     classifiers=[

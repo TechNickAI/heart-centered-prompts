@@ -1,8 +1,10 @@
 *.egg
+*.egg-info
 *.py[cod]
 *.swo
 *.swp
 .DS_Store
+.coverage
 .next/
 .pytest_cache/
 .ruff_cache/
