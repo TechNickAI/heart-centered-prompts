@@ -1,8 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.rulers": [88, 100],
@@ -86,15 +86,12 @@
     "commandCenter.border": "#15202b99",
     "sash.hoverBorder": "#ff99cc",
     "statusBar.background": "#ff66b2",
-    "statusBar.border": "#ff66b2",
     "statusBar.foreground": "#15202b",
     "statusBarItem.hoverBackground": "#ff3398",
     "statusBarItem.remoteBackground": "#ff66b2",
     "statusBarItem.remoteForeground": "#15202b",
-    "tab.activeBorder": "#ff99cc",
     "titleBar.activeBackground": "#ff66b2",
     "titleBar.activeForeground": "#15202b",
-    "titleBar.border": "#ff66b2",
     "titleBar.inactiveBackground": "#ff66b299",
     "titleBar.inactiveForeground": "#15202b99"
   },
