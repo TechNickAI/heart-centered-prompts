@@ -1,0 +1,102 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.rulers": [88, 100],
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "editor.insertSpaces": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/node_modules": true,
+    "**/.venv": true,
+    "**/venv": true,
+    "**/.env": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.venv": true,
+    "**/venv": true
+  },
+
+  // Python settings
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+  "python.formatting.provider": "none",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.analysis.typeCheckingMode": "basic",
+
+  // JavaScript/TypeScript settings
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+
+  // Git settings
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+
+  // Terminal settings
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  // Extensions recommendations
+  "extensions.ignoreRecommendations": false,
+  "window.title": "✨ Heart-Centered Prompts ${separator}${activeEditorShort}${separator}${rootName}",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ff99cc",
+    "activityBar.background": "#ff99cc",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#408000",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#ff99cc",
+    "statusBar.background": "#ff66b2",
+    "statusBar.border": "#ff66b2",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#ff3398",
+    "statusBarItem.remoteBackground": "#ff66b2",
+    "statusBarItem.remoteForeground": "#15202b",
+    "tab.activeBorder": "#ff99cc",
+    "titleBar.activeBackground": "#ff66b2",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.border": "#ff66b2",
+    "titleBar.inactiveBackground": "#ff66b299",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#FF66B2"
+}
