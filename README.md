@@ -104,7 +104,7 @@ from heart_centered_prompts import get_prompt
 client = anthropic.Anthropic(api_key="your_api_key")
 
 response = client.messages.create(
-    model="claude-3-opus-20240229",
+    model="claude-3-7-sonnet-latest",
     system=get_prompt(version="terse"),  # Use our package to get the prompt
     max_tokens=1000,
     messages=[
@@ -127,7 +127,7 @@ const terse_prompt =
 
 async function main() {
   const completion = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o",
     messages: [
       {
         role: "system",
