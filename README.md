@@ -63,7 +63,7 @@ These prompts help create AI that's advanced enough to be brilliant, yet human e
 We now provide a Python package for easy integration:
 
 ```bash
-pip install git+https://github.com/technickai/heart-centered-prompts.git#subdirectory=python
+pip install heart-centered-prompts
 ```
 
 ```python
