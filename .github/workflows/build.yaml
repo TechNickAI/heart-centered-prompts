@@ -1,0 +1,102 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.13"
+      - uses: pre-commit/action@v3.0.1
+
+  build-python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}-${{ hashFiles('python/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}-
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pytest-cov build
+          cd python
+          python -m pip install -e .
+
+      - name: Run tests with coverage
+        run: |
+          cd python
+          python -m pytest tests/ --cov=heart_centered_prompts --cov-report=term
+
+      - name: Build package
+        run: |
+          cd python
+          python -m build
+
+      - name: Verify package installable
+        run: |
+          cd python
+          python -m pip install dist/*.whl
+          python -c "import heart_centered_prompts; print(f'Successfully imported version: {heart_centered_prompts.__version__}')"
+
+      - name: Upload package artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-package-${{ matrix.python-version }}
+          path: python/dist/
+          retention-days: 7
+          if-no-files-found: error
+
+  build-javascript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "22"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install dependencies
+        run: |
+          # Uncomment when JavaScript package is implemented
+          # cd javascript
+          # pnpm install
+
+      - name: Run tests
+        run: |
+          # Uncomment when JavaScript tests are implemented
+          # cd javascript
+          # pnpm test
+          echo "JavaScript tests placeholder - to be implemented"

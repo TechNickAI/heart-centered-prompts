@@ -1,0 +1,131 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heart_centered_prompts"
+version = "0.1.0"
+description = "Heart-centered system prompts for AI assistants"
+readme = "README.md"
+authors = [
+    {name = "TechnickAI", email = ""}  # Add email if desired
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/technickai/heart-centered-prompts"
+"Bug Tracker" = "https://github.com/technickai/heart-centered-prompts/issues"
+
+[tool.black]
+line-length = 120
+target-version = ["py313"]
+
+[tool.pytest.ini_options]
+python_files = "tests.py test_*.py"
+filterwarnings = "ignore::DeprecationWarning"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+exclude = [
+    "**/node_modules",
+]
+lint.extend-ignore = [
+    "ARG002", # Unused method args like args and kwargs are ok
+    "DTZ003",
+    "DTZ007",
+    "E401",    # multiple imports on one line
+    "N817",    # D for decimal
+    "PERF401", # Don't force list comprehensions
+    "PLR0911", # Don't complain about too many return statements
+    "PLR0912", # Don't complain about too many branches
+    "PLR0913", # don't complain about too many arguments
+    "PLR0915",  # Don't complain about too many statements in a method
+    "PLR2004", # Don't force every magic value to be a constant
+    "PLW0120", # else without a break is fine (I use return with for-else)
+    "RET505",  # Allow for return values to be set outside of if/else blocks
+    "RET506",  # Allow for return values to be set after raising an exception
+    "RET507",  # Allow for return values to be set after continue
+    "RET508",  # Allow for return values to be set after break
+    "RUF001",  # Don't complain about ambiguous text in strings
+    "RUF012",  # Don't force annotations of mutable class attributes
+    "RUF013",  # Optional args are ok
+    "RUF010",  # Don't force e!s
+    "S101",    # assert
+    "S105",    # possible hardcoded password
+    "S106",    # possible hardcoded password
+    "S308",    # Trust us with mark_safe
+    "S311",    # Trust us with random
+    "S324",    # Trust us with hashlib
+    "SIM102",  # Nested ifs are ok
+    "SIM108",  # Don't force ternary operators
+    "SIM105",  # try/except/pass is fine
+    "TRY300",  #
+    "TRY301",  # Let me raise errors how I want to
+    "TRY003",  # long messages in exceptions are ok
+]
+# https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
+line-length = 120
+lint.select = [
+    "A", # builtins
+    "ARG", # unused arguments
+    "B",   # bugbear
+    "DTZ", # datetimez
+    "E",   # pycodestyle
+    "EXE", # executable settings
+    "F",   # pyflakes
+    "FURB", # modernize codebase
+    "I",   # Isort
+    "INP", # implicit namespace packages
+    "ISC", # string concatenation
+    "N",   # pep8 naming
+    "NPY", # numpy
+    "PERF", # Perflint
+    "PGH", # explicit noqa
+    "PIE", # flake8 pie
+    "PLC", # pylint convention
+    "PLE", # pylint errors
+    "PLR", # pylint refactor
+    "PLW", # pylint warnings
+    "PTH", # Use path library
+    "RET", # return statements
+    "RSE", # raise statements
+    "RUF", # ruff Disabled because it is too aggressive about removing noqa settings when editing files
+    "S",   # flake8-bandit
+    "SIM", # flake8 simplify
+    "SLF", # self
+    "SLOT",
+    "T10", # debug statements
+    "T20", # print statements
+    "TRY", # try/except
+    "UP",  # pyupgrade
+    "W",   # pycodestyle warnings
+    "YTT", # flake8 2020
+]
+target-version = "py313"
+lint.unfixable = ["F841"]
+format.docstring-code-format = true
+
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = ["PLR0915", "ARG001"]  # Test files can be longer and have unused function arguments
+"conftest.py" = ["ARG001"]  # Allow unused arguments in pytest hooks and fixtures
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
