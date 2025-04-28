@@ -30,6 +30,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install build setuptools_scm
 
+      - name: Show current directory and files
+        run: |
+          pwd
+          ls -al
+          ls -al ../
+
+      - name: Show .git directory and tags
+        run: |
+          ls -al ../.git
+          git tag -l
+          git describe --tags --always --dirty
+          git log --oneline -n 5
+
+      - name: Show setuptools_scm version
+        run: |
+          python -m pip show setuptools_scm
+
       - name: Build package
         working-directory: ./python
         run: |

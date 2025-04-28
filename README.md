@@ -72,9 +72,9 @@ from heart_centered_prompts import get_prompt
 # Get the default prompt (align_to_love, standard version)
 prompt = get_prompt()
 
-# Or specify a version
-terse_prompt = get_prompt(version="terse")
-comprehensive_prompt = get_prompt(version="comprehensive")
+# Or specify a detail level
+terse_prompt = get_prompt(detail_level="terse")
+comprehensive_prompt = get_prompt(detail_level="comprehensive")
 ```
 
 See [Python Package README](python/README.md) for full documentation.
@@ -105,7 +105,7 @@ client = anthropic.Anthropic(api_key="your_api_key")
 
 response = client.messages.create(
     model="claude-3-7-sonnet-latest",
-    system=get_prompt(version="terse"),  # Use our package to get the prompt
+    system=get_prompt(detail_level="terse"),  # Use our package to get the prompt
     max_tokens=1000,
     messages=[
         {"role": "user", "content": "Hello, how are you today?"}
