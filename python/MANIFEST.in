@@ -1,5 +1,5 @@
 include README.md
 include LICENSE
-recursive-include heart_centered_prompts/prompts *.txt
+recursive-include heart_centered_prompts/prompts *
 global-exclude __pycache__
 global-exclude *.py[cod]
