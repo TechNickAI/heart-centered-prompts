@@ -75,6 +75,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="TechnickAI",
+    license="MIT",
     url="https://github.com/technickai/heart-centered-prompts",
     packages=find_packages(),
     classifiers=[
