@@ -61,7 +61,7 @@ pythonpath = ["."]
 exclude = [
     "**/node_modules",
 ]
-lint.extend-ignore = [
+extend-ignore = [
     "ARG002", # Unused method args like args and kwargs are ok
     "DTZ003",
     "DTZ007",
@@ -97,7 +97,7 @@ lint.extend-ignore = [
 ]
 # https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
 line-length = 120
-lint.select = [
+select = [
     "A", # builtins
     "ARG", # unused arguments
     "B",   # bugbear
@@ -105,7 +105,6 @@ lint.select = [
     "E",   # pycodestyle
     "EXE", # executable settings
     "F",   # pyflakes
-    "FURB", # modernize codebase
     "I",   # Isort
     "INP", # implicit namespace packages
     "ISC", # string concatenation
@@ -133,10 +132,8 @@ lint.select = [
     "W",   # pycodestyle warnings
     "YTT", # flake8 2020
 ]
-target-version = "py313"
-lint.unfixable = ["F841"]
-format.docstring-code-format = true
+unfixable = ["F841"]
 
-[tool.ruff.lint.per-file-ignores]
+[tool.ruff.per-file-ignores]
 "test_*.py" = ["PLR0915", "ARG001"]  # Test files can be longer and have unused function arguments
 "conftest.py" = ["ARG001"]  # Allow unused arguments in pytest hooks and fixtures
