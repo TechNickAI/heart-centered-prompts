@@ -10,7 +10,7 @@ readme = "README.md"
 authors = [
     {name = "TechnickAI"}
 ]
-license = "MIT"
+license = { text = "MIT" }
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
