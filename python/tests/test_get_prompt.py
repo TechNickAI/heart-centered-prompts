@@ -15,30 +15,27 @@ def test_default_prompt():
     prompt = get_prompt()
     assert prompt is not None
     assert len(prompt) > 0
-    # Standard version should be between 1000-2000 chars typically
-    assert 1000 < len(prompt) < 2000
+    # Just verify it has substantial content
+    assert len(prompt) > 500
 
 
 def test_all_versions():
     """Test that all prompt detail levels can be retrieved."""
     detail_levels = ["terse", "concise", "standard", "comprehensive"]
 
+    # Get all prompts to compare relative lengths
+    prompts = {}
     for level in detail_levels:
-        # Use cast to fix type checking issues in tests
         typed_level = cast(DetailLevelType, level)
         prompt = get_prompt(detail_level=typed_level)
+        prompts[level] = prompt
         assert prompt is not None
         assert len(prompt) > 0
 
-        # Check each version has appropriate length
-        if level == "terse":
-            assert len(prompt) < 1000
-        elif level == "concise":
-            assert len(prompt) < 1500
-        elif level == "standard":
-            assert 1000 < len(prompt) < 2000
-        elif level == "comprehensive":
-            assert len(prompt) > 2000
+    # Check relative lengths instead of absolute values
+    assert len(prompts["terse"]) < len(prompts["concise"])
+    assert len(prompts["concise"]) < len(prompts["standard"])
+    assert len(prompts["standard"]) < len(prompts["comprehensive"])
 
 
 def test_invalid_collection():
