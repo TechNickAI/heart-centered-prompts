@@ -2,7 +2,6 @@
 Setup script for heart_centered_prompts.
 """
 
-import os
 import shutil
 from pathlib import Path
 
@@ -20,20 +19,19 @@ prompts_dir = root_dir / "prompts"
 package_prompts_dir = package_dir / "prompts"
 
 # Ensure the base prompts directory exists
-os.makedirs(package_prompts_dir, exist_ok=True)
+package_prompts_dir.mkdir(parents=True, exist_ok=True)
 
 if prompts_dir.exists():
     for collection in prompts_dir.iterdir():
         if collection.is_dir():
             # Create collection directory if it doesn't exist
             collection_path = package_prompts_dir / collection.name
-            os.makedirs(collection_path, exist_ok=True)
+            collection_path.mkdir(parents=True, exist_ok=True)
 
             # Copy prompt files
             for prompt_file in collection.glob("*.txt"):
                 dest_file = collection_path / prompt_file.name
                 shutil.copy2(prompt_file, dest_file)
-                print(f"Copied {prompt_file} to {dest_file}")
 
 setup(
     name="heart_centered_prompts",
