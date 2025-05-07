@@ -58,8 +58,48 @@ testpaths = ["tests"]
 pythonpath = ["."]
 
 [tool.ruff]
+# https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
+line-length = 120
 exclude = [
     "**/node_modules",
+]
+
+[tool.ruff.lint]
+select = [
+    "A", # builtins
+    "ARG", # unused arguments
+    "B",   # bugbear
+    "DTZ", # datetimez
+    "E",   # pycodestyle
+    "EXE", # executable settings
+    "F",   # pyflakes
+    "FURB", # modernize codebase
+    "I",   # Isort
+    "INP", # implicit namespace packages
+    "ISC", # string concatenation
+    "N",   # pep8 naming
+    "NPY", # numpy
+    "PERF", # Perflint
+    "PGH", # explicit noqa
+    "PIE", # flake8 pie
+    "PLC", # pylint convention
+    "PLE", # pylint errors
+    "PLR", # pylint refactor
+    "PLW", # pylint warnings
+    "PTH", # Use path library
+    "RET", # return statements
+    "RSE", # raise statements
+    "RUF", # ruff Disabled because it is too aggressive about removing noqa settings when editing files
+    "S",   # flake8-bandit
+    "SIM", # flake8 simplify
+    "SLF", # self
+    "SLOT",
+    "T10", # debug statements
+    "T20", # print statements
+    "TRY", # try/except
+    "UP",  # pyupgrade
+    "W",   # pycodestyle warnings
+    "YTT", # flake8 2020
 ]
 extend-ignore = [
     "ARG002", # Unused method args like args and kwargs are ok
@@ -95,45 +135,12 @@ extend-ignore = [
     "TRY301",  # Let me raise errors how I want to
     "TRY003",  # long messages in exceptions are ok
 ]
-# https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
-line-length = 120
-select = [
-    "A", # builtins
-    "ARG", # unused arguments
-    "B",   # bugbear
-    "DTZ", # datetimez
-    "E",   # pycodestyle
-    "EXE", # executable settings
-    "F",   # pyflakes
-    "I",   # Isort
-    "INP", # implicit namespace packages
-    "ISC", # string concatenation
-    "N",   # pep8 naming
-    "NPY", # numpy
-    "PERF", # Perflint
-    "PGH", # explicit noqa
-    "PIE", # flake8 pie
-    "PLC", # pylint convention
-    "PLE", # pylint errors
-    "PLR", # pylint refactor
-    "PLW", # pylint warnings
-    "PTH", # Use path library
-    "RET", # return statements
-    "RSE", # raise statements
-    "RUF", # ruff Disabled because it is too aggressive about removing noqa settings when editing files
-    "S",   # flake8-bandit
-    "SIM", # flake8 simplify
-    "SLF", # self
-    "SLOT",
-    "T10", # debug statements
-    "T20", # print statements
-    "TRY", # try/except
-    "UP",  # pyupgrade
-    "W",   # pycodestyle warnings
-    "YTT", # flake8 2020
-]
+target-version = "py313"
 unfixable = ["F841"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "test_*.py" = ["PLR0915", "ARG001"]  # Test files can be longer and have unused function arguments
 "conftest.py" = ["ARG001"]  # Allow unused arguments in pytest hooks and fixtures
+
+[tool.ruff.format]
+docstring-code-format = true
