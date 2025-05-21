@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
@@ -26,6 +28,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -63,6 +67,13 @@ jobs:
           cd python
           python -m pip install dist/*.whl
           python -c "import heart_centered_prompts; print(f'Successfully imported version: {heart_centered_prompts.__version__}')"
+
+      - name: Run tests against installed wheel
+        run: |
+          cd python
+          python -m pip uninstall -y heart_centered_prompts
+          python -m pip install dist/*.whl
+          pytest --pyargs heart_centered_prompts
 
       - name: Upload package artifacts
         uses: actions/upload-artifact@v4

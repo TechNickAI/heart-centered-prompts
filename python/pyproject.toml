@@ -35,7 +35,7 @@ keywords = [
 ]
 
 [tool.setuptools_scm]
-# Simple configuration for standard v* tags
+root = ".."
 local_scheme = "no-local-version"
 fallback_version = "0.0.0"
 
