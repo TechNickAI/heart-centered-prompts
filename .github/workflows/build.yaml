@@ -47,7 +47,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           python -m pip install pytest pytest-cov build
           cd python
           python -m pip install -e .
@@ -55,7 +54,7 @@ jobs:
       - name: Run tests with coverage
         run: |
           cd python
-          python -m pytest tests/ --cov=heart_centered_prompts --cov-report=term
+          pytest --cov=heart_centered_prompts --cov-report=term
 
       - name: Build package
         run: |
