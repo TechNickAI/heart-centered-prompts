@@ -1,0 +1,2 @@
+# This file ensures the directory exists in git
+# Symlinks to root prompt files will be created here for development
