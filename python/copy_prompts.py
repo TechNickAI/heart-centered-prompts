@@ -1,4 +1,5 @@
 import logging
+import os
 import shutil
 import sys
 from pathlib import Path
@@ -73,21 +74,28 @@ if __name__ == "__main__":
             logger.info(f"Changing current directory to: {prospective_python_dir}")
             # os.chdir is fine here as Path.cwd() will reflect the change.
             # No direct pathlib equivalent for changing cwd.
-            import os
-
             os.chdir(prospective_python_dir)
         else:
             logger.warning(f"Script is in {PYTHON_DIR}, but CWD is {Path.cwd()}. Paths might be incorrect.")
             logger.warning("Please run from the 'python' directory or the repository root.")
 
-    # Create __init__.py in python/heart_centered_prompts/prompts/ if it doesn't exist
-    prompts_init_path = PYTHON_DIR / "heart_centered_prompts" / "prompts" / "__init__.py"
+    # Define and create parent directory for the first __init__.py
+    prompts_package_base_dir = PYTHON_DIR / "heart_centered_prompts" / "prompts"
+    prompts_package_base_dir.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Ensured base prompts package directory exists: {prompts_package_base_dir}")
+
+    prompts_init_path = prompts_package_base_dir / "__init__.py"
     if not prompts_init_path.exists():
         logger.info(f"Creating missing __init__.py at {prompts_init_path}")
         with prompts_init_path.open("w") as f:
             f.write("# This file makes Python treat the 'prompts' directory as a package.\n")
 
-    # Create __init__.py in python/heart_centered_prompts/prompts/align_to_love/ if it doesn't exist
+    # Define and create parent directory for the second __init__.py (DEST_PROMPTS_DIR)
+    # DEST_PROMPTS_DIR is already defined globally.
+    # This line ensures .../prompts/align_to_love/ directory exists before writing __init__.py
+    DEST_PROMPTS_DIR.mkdir(parents=True, exist_ok=True)
+    logger.info(f"Ensured destination prompts directory exists for __init__.py: {DEST_PROMPTS_DIR}")
+
     align_to_love_init_path = DEST_PROMPTS_DIR / "__init__.py"
     if not align_to_love_init_path.exists():
         logger.info(f"Creating missing __init__.py at {align_to_love_init_path}")
