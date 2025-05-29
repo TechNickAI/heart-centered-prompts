@@ -48,6 +48,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install pytest pytest-cov build
+          python python/copy_prompts.py
           cd python
           python -m pip install -e .
 
@@ -69,6 +70,7 @@ jobs:
 
       - name: Run tests against installed wheel
         run: |
+          python python/copy_prompts.py
           cd python
           python -m pip uninstall -y heart_centered_prompts
           python -m pip install dist/*.whl

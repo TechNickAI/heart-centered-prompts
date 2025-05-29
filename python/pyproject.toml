@@ -53,6 +53,7 @@ target-version = ["py313"]
 
 [tool.pytest.ini_options]
 python_files = "tests.py test_*.py"
+# Disable warnings from third-party libraries
 filterwarnings = "ignore::DeprecationWarning"
 testpaths = ["tests"]
 pythonpath = ["."]
@@ -61,17 +62,18 @@ pythonpath = ["."]
 exclude = [
     "**/node_modules",
 ]
-extend-ignore = [
-    "ARG002", # Unused method args like args and kwargs are ok
+lint.extend-ignore = [
+    "ARG002",  # Unused method args like args and kwargs are ok
     "DTZ003",
     "DTZ007",
+    "DJ001",   # Null text fields are ok
     "E401",    # multiple imports on one line
     "N817",    # D for decimal
     "PERF401", # Don't force list comprehensions
     "PLR0911", # Don't complain about too many return statements
     "PLR0912", # Don't complain about too many branches
     "PLR0913", # don't complain about too many arguments
-    "PLR0915",  # Don't complain about too many statements in a method
+    "PLR0915", # Don't complain about too many statements in a method
     "PLR2004", # Don't force every magic value to be a constant
     "PLW0120", # else without a break is fine (I use return with for-else)
     "RET505",  # Allow for return values to be set outside of if/else blocks
@@ -79,6 +81,7 @@ extend-ignore = [
     "RET507",  # Allow for return values to be set after continue
     "RET508",  # Allow for return values to be set after break
     "RUF001",  # Don't complain about ambiguous text in strings
+    "RUF003",  # Don't complain about × (multiplication sign)
     "RUF012",  # Don't force annotations of mutable class attributes
     "RUF013",  # Optional args are ok
     "RUF010",  # Don't force e!s
@@ -97,43 +100,56 @@ extend-ignore = [
 ]
 # https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
 line-length = 120
-select = [
-    "A", # builtins
-    "ARG", # unused arguments
-    "B",   # bugbear
-    "DTZ", # datetimez
-    "E",   # pycodestyle
-    "EXE", # executable settings
-    "F",   # pyflakes
-    "I",   # Isort
-    "INP", # implicit namespace packages
-    "ISC", # string concatenation
-    "N",   # pep8 naming
-    "NPY", # numpy
+lint.select = [
+    "A",    # builtins
+    "ARG",  # unused arguments
+    "B",    # bugbear
+    "DJ",   # django
+    "DTZ",  # datetimez
+    "E",    # pycodestyle
+    "EXE",  # executable settings
+    "F",    # pyflakes
+    "FURB", # modernize codebase
+    "I",    # Isort
+    "INP",  # implicit namespace packages
+    "ISC",  # string concatenation
+    "N",    # pep8 naming
+    "NPY",  # numpy
+    "PD",   # pandas checking
     "PERF", # Perflint
-    "PGH", # explicit noqa
-    "PIE", # flake8 pie
-    "PLC", # pylint convention
-    "PLE", # pylint errors
-    "PLR", # pylint refactor
-    "PLW", # pylint warnings
-    "PTH", # Use path library
-    "RET", # return statements
-    "RSE", # raise statements
-    "RUF", # ruff Disabled because it is too aggressive about removing noqa settings when editing files
-    "S",   # flake8-bandit
-    "SIM", # flake8 simplify
-    "SLF", # self
+    "PGH",  # explicit noqa
+    "PIE",  # flake8 pie
+    "PLC",  # pylint convention
+    "PLE",  # pylint errors
+    "PLR",  # pylint refactor
+    "PLW",  # pylint warnings
+    #"PT",  # pytest style
+    "PTH",  # Use path library
+    "RET",  # return statements
+    "RSE",  # raise statements
+    "RUF",  # ruff Disabled because it is too aggressive about removing noqa settings when editing files
+    "S",    # flake8-bandit
+    "SIM",  # flake8 simplify
+    "SLF",  # self
     "SLOT",
-    "T10", # debug statements
-    "T20", # print statements
-    "TRY", # try/except
-    "UP",  # pyupgrade
-    "W",   # pycodestyle warnings
-    "YTT", # flake8 2020
+    "T10",  # debug statements
+    "T20",  # print statements
+    "TRY",  # try/except
+    "UP",   # pyupgrade
+    "W",    # pycodestyle warnings
+    "YTT",  # flake8 2020
 ]
-unfixable = ["F841"]
+target-version = "py313"
+lint.unfixable = ["F841"]
+format.docstring-code-format = true
 
-[tool.ruff.per-file-ignores]
-"test_*.py" = ["PLR0915", "ARG001"]  # Test files can be longer and have unused function arguments
-"conftest.py" = ["ARG001"]  # Allow unused arguments in pytest hooks and fixtures
+[tool.ruff.lint.per-file-ignores]
+"test_*.py" = [
+    "PLR0915", # Pylint: Too many statements (tests can be long)
+    "ARG001",  # Ruff: Unused function argument (common with pytest fixtures)
+    "ARG005",  # Ruff: Unused argument in lambda expression
+    "SLF001",  # Ruff: Private member accessed (tests may need to inspect internals)
+]
+"**/conftest.py" = [
+    "ARG001",
+] # Allow unused arguments in pytest hooks and fixtures
