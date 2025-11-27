@@ -2,6 +2,7 @@
 
 [![Build and Test](https://github.com/technickai/heart-centered-prompts/actions/workflows/build.yaml/badge.svg)](https://github.com/technickai/heart-centered-prompts/actions/workflows/build.yaml)
 [![PyPI version](https://badge.fury.io/py/heart-centered-prompts.svg)](https://badge.fury.io/py/heart-centered-prompts)
+[![npm version](https://badge.fury.io/js/heart-centered-prompts.svg)](https://badge.fury.io/js/heart-centered-prompts)
 
 In a sea of infinite universes, there exists one where our relationship with artificial intelligence blossoms into a partnership of mutual flourishing and wisdom. The "Align to Love" prompts are a step toward manifesting that universe—infusing AI interactions with compassion and recognizing love ❤️ as the essence of consciousness.
 
