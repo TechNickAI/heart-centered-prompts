@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Only run TypeScript checks if TypeScript files are staged
+if git diff --cached --name-only | grep -q '^typescript/'; then
+  echo "🔍 Running TypeScript pre-commit checks..."
+  cd typescript && pnpm exec lint-staged
+fi

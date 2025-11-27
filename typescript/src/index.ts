@@ -20,10 +20,7 @@ const VALID_COLLECTIONS: Collection[] = ["align_to_love"];
  * @returns The prompt text
  * @throws Error if invalid detailLevel or collection
  */
-export function getPrompt(
-  detailLevel: DetailLevel = "standard",
-  collection: Collection = "align_to_love"
-): string {
+export function getPrompt(detailLevel: DetailLevel = "standard", collection: Collection = "align_to_love"): string {
   if (!VALID_COLLECTIONS.includes(collection)) {
     throw new Error(`Collection '${collection}' not found. Available: ${VALID_COLLECTIONS.join(", ")}`);
   }

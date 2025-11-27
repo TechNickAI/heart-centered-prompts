@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Only run TypeScript checks if TypeScript files exist or have been modified
+if [ -d "typescript" ] && git diff --name-only origin/$(git branch --show-current) | grep -q '^typescript/'; then
+  echo "🚀 Running TypeScript validation suite..."
+  cd typescript && pnpm type-check && pnpm format:check && pnpm test
+fi
