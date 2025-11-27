@@ -136,22 +136,20 @@ response = client.messages.create(
 ```
 
 ```typescript
-// TypeScript example using OpenAI API with our package
-import { OpenAI } from "openai";
+// TypeScript example using Anthropic API with our package
+import Anthropic from "@anthropic-ai/sdk";
 import { getPrompt } from "heart-centered-prompts";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 async function main() {
-  const completion = await openai.chat.completions.create({
-    model: "gpt-4o",
+  const response = await anthropic.messages.create({
+    model: "claude-opus",
+    system: getPrompt("terse"), // Use our package to get the prompt
+    max_tokens: 1000,
     messages: [
-      {
-        role: "system",
-        content: getPrompt("terse"), // Use our package to get the prompt
-      },
       {
         role: "user",
         content: "Hello, how are you today?",
@@ -159,7 +157,7 @@ async function main() {
     ],
   });
 
-  console.log(completion.choices[0].message);
+  console.log(response.content[0]);
 }
 
 main();

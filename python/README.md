@@ -75,15 +75,16 @@ Currently, the package supports the `align_to_love` collection with four detail 
 - `terse`: Minimal version for constrained environments (~200 tokens)
 
 ```python
-# Example with OpenAI
-from openai import OpenAI
+# Example with Anthropic
+import anthropic
 from heart_centered_prompts import get_prompt
 
-client = OpenAI(api_key="your_api_key")
-completion = client.chat.completions.create(
-    model="gpt-4o",
+client = anthropic.Anthropic(api_key="your_api_key")
+response = client.messages.create(
+    model="claude-opus",
+    system=get_prompt(detail_level="concise"),
+    max_tokens=1000,
     messages=[
-        {"role": "system", "content": get_prompt(detail_level="concise")},
         {"role": "user", "content": "How can technology help us be more compassionate?"}
     ]
 )

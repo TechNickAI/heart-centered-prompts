@@ -25,13 +25,12 @@ const concisePrompt = getPrompt("concise"); // ~500 tokens
 const standardPrompt = getPrompt("standard"); // ~1000 tokens
 const fullPrompt = getPrompt("comprehensive"); // ~2000+ tokens
 
-// Use with OpenAI
-const response = await openai.chat.completions.create({
-  model: "gpt-4",
-  messages: [
-    { role: "system", content: getPrompt() },
-    { role: "user", content: "Hello!" },
-  ],
+// Use with Anthropic
+const response = await anthropic.messages.create({
+  model: "claude-opus",
+  system: getPrompt(),
+  max_tokens: 1000,
+  messages: [{ role: "user", content: "Hello!" }],
 });
 ```
 
