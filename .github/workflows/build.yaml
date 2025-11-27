@@ -9,6 +9,7 @@ on:
 
 jobs:
   pre-commit:
+    name: ✨ Code Quality (Pre-commit)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +21,7 @@ jobs:
       - uses: pre-commit/action@v3.0.1
 
   build-python:
+    name: 🐍 Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -85,7 +87,7 @@ jobs:
           if-no-files-found: error
 
   typescript-quality:
-    name: TypeScript Code Quality
+    name: 💎 TypeScript Lint & Format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -124,7 +126,7 @@ jobs:
           pnpm type-check
 
   typescript-test:
-    name: TypeScript Tests
+    name: 🧪 TypeScript Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -158,7 +160,7 @@ jobs:
           pnpm test
 
   typescript-build:
-    name: TypeScript Build
+    name: 📦 TypeScript Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
