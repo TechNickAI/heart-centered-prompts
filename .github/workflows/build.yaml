@@ -107,6 +107,11 @@ jobs:
           cd typescript
           pnpm install --frozen-lockfile
 
+      - name: Copy prompts
+        run: |
+          cd typescript
+          pnpm tsx copy-prompts.ts
+
       - name: Run tests
         run: |
           cd typescript
