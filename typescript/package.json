@@ -1,0 +1,77 @@
+{
+  "name": "heart-centered-prompts",
+  "version": "0.3.0",
+  "description": "Heart-centered system prompts for AI assistants",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "prompts"
+  ],
+  "scripts": {
+    "build": "tsx copy-prompts.ts && tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,json,md}\"",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm test && pnpm build"
+  },
+  "keywords": [
+    "AI",
+    "prompts",
+    "heart-centered",
+    "compassion",
+    "consciousness",
+    "alignment",
+    "love",
+    "emotional intelligence"
+  ],
+  "author": "TechnickAI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/technickai/heart-centered-prompts"
+  },
+  "bugs": {
+    "url": "https://github.com/technickai/heart-centered-prompts/issues"
+  },
+  "homepage": "https://github.com/technickai/heart-centered-prompts",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^2.0.0",
+    "eslint": "^9.39.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.1",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.48.0",
+    "vitest": "^2.0.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}
