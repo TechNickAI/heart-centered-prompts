@@ -1,0 +1,54 @@
+name: Publish npm Package
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: pnpm
+          cache-dependency-path: typescript/pnpm-lock.yaml
+          registry-url: https://registry.npmjs.org
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Install dependencies
+        run: |
+          cd typescript
+          pnpm install --frozen-lockfile
+
+      - name: Set version from tag
+        run: |
+          cd typescript
+          npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
+
+      - name: Build and test
+        run: |
+          cd typescript
+          pnpm test
+          pnpm build
+
+      - name: Publish to npm
+        run: |
+          cd typescript
+          pnpm publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
