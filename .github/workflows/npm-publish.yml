@@ -40,6 +40,11 @@ jobs:
           cd typescript
           npm version ${{ steps.version.outputs.VERSION }} --no-git-tag-version
 
+      - name: Copy prompts
+        run: |
+          cd typescript
+          pnpm tsx copy-prompts.ts
+
       - name: Build and test
         run: |
           cd typescript
