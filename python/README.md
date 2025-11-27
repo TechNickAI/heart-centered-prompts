@@ -114,6 +114,56 @@ terse_prompt = get_prompt(detail_level="terse")
 
 Longer system prompts will consume more tokens and may slightly increase latency (typically by 10-50ms depending on model and prompt length). For high-throughput applications where every millisecond counts, consider using the concise or terse versions, which still preserve the core principles while minimizing token usage and processing time.
 
+## Development
+
+### Requirements
+
+- Python 3.10 or higher
+- pip
+
+### Testing Across Multiple Python Versions
+
+This package supports Python 3.10, 3.11, 3.12, and 3.13. To test across versions locally:
+
+**Using tox (traditional approach):**
+```bash
+cd python
+pip install tox
+tox  # Test all Python versions
+tox -e py313  # Test specific version
+tox -e lint  # Run linting
+```
+
+**Using uv (modern, faster approach):**
+```bash
+pip install uv
+cd python
+
+# Test on specific Python version
+uv run --python 3.10 pytest
+uv run --python 3.11 pytest
+uv run --python 3.13 pytest
+
+# Install dev dependencies
+uv pip install -e ".[dev]"
+```
+
+### Running Tests
+
+```bash
+cd python
+pip install -e ".[test]"
+pytest
+```
+
+### Building the Package
+
+```bash
+cd python
+pip install -e ".[dev]"
+python -m build
+```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request or open an issue on the [GitHub repository](https://github.com/technickai/heart-centered-prompts).

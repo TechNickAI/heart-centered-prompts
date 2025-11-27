@@ -11,17 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for setuptools_scm to determine version from Git tags
 
-      - name: Debug Git tags
-        run: |
-          echo "Current tag: ${GITHUB_REF#refs/tags/}"
-          git tag -l
-
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
