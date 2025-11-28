@@ -1,6 +1,6 @@
 {
   "name": "heart-centered-prompts",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Heart-centered system prompts for AI assistants",
   "type": "module",
   "main": "./dist/index.js",
@@ -12,11 +12,11 @@
     }
   },
   "files": [
-    "dist",
-    "prompts"
+    "dist"
   ],
   "scripts": {
-    "build": "tsx copy-prompts.ts && tsup",
+    "generate": "tsx scripts/generate-prompts.ts",
+    "build": "pnpm generate && tsup",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

@@ -1,6 +1,4 @@
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { PROMPTS } from "./generated-prompts.js";
 
 export type DetailLevel = "comprehensive" | "standard" | "concise" | "terse";
 export type Collection = "align_to_love";
@@ -28,14 +26,7 @@ export function getPrompt(detailLevel: DetailLevel = "standard", collection: Col
     throw new Error(`Detail level '${detailLevel}' not found. Available: ${VALID_DETAIL_LEVELS.join(", ")}`);
   }
 
-  const __dirname = dirname(fileURLToPath(import.meta.url));
-  const promptPath = join(__dirname, "..", "prompts", collection, `${detailLevel}.txt`);
-
-  try {
-    return readFileSync(promptPath, "utf-8");
-  } catch {
-    throw new Error(`Prompt file not found at ${promptPath}`);
-  }
+  return PROMPTS[collection][detailLevel];
 }
 
 // Re-export types for consumers

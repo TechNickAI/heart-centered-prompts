@@ -58,6 +58,11 @@ Returns a heart-centered system prompt.
 
 **Throws:** `Error` if invalid parameters are provided
 
+## Bundler Compatibility
+
+This package works with all bundlers (webpack, Vite, esbuild, Next.js, etc.) including Next.js standalone builds and
+serverless environments. Prompt content is inlined at build time, so no filesystem access is required at runtime.
+
 ## TypeScript Support
 
 Fully typed with TypeScript. All types are exported:
