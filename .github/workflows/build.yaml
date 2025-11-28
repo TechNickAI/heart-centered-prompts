@@ -110,6 +110,11 @@ jobs:
           cd typescript
           pnpm install --frozen-lockfile
 
+      - name: Generate prompts
+        run: |
+          cd typescript
+          pnpm generate
+
       - name: Run linter
         run: |
           cd typescript
@@ -149,10 +154,10 @@ jobs:
           cd typescript
           pnpm install --frozen-lockfile
 
-      - name: Copy prompts
+      - name: Generate prompts
         run: |
           cd typescript
-          pnpm tsx copy-prompts.ts
+          pnpm generate
 
       - name: Run tests
         run: |
