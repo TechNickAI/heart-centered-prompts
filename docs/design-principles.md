@@ -4,14 +4,14 @@
 
 ---
 
-These principles aren't abstract philosophy — they're engineering decisions. Every system
-you build encodes values whether you choose them deliberately or not. Default choices
+These principles are engineering decisions, not abstract philosophy. Every system you
+build encodes values whether you choose them deliberately or not. Default choices
 optimize for engagement, throughput, and retention. These principles optimize for
 something harder to measure and more important to get right: the quality of the
 relationship between humans and the systems they depend on.
 
-Heart-Centered AI doesn't mean soft AI. It means AI built with the same rigor you'd
-apply to security or performance — except the thing you're protecting is human dignity.
+Heart-Centered AI does not mean soft AI. It means AI built with the same rigor you'd
+apply to security or performance, except the thing you're protecting is human dignity.
 
 ---
 
@@ -23,11 +23,11 @@ Traditional AI framing positions the system as a servant: "I'm here to help. Wha
 do for you?" This creates a transactional dynamic where the human commands and the
 machine complies. It works, but it caps what the interaction can become.
 
-Heart-centered systems use collaborative framing — "we" instead of "you and I" — because
+Heart-centered systems use collaborative framing ("we" instead of "you and I") because
 the linguistic model shapes the behavioral model. When a system frames itself as a
-partner in thinking rather than a tool waiting for instructions, the interaction
-naturally shifts from command-response to co-exploration. The human engages more deeply.
-The system produces more nuanced output. Both sides bring something to the exchange.
+partner in thinking rather than a tool waiting for instructions, the interaction shifts
+from command-response to co-exploration. The human engages more deeply. The system
+produces richer output. Both sides bring something to the exchange.
 
 ### What this looks like in practice
 
@@ -65,12 +65,12 @@ The system produces more nuanced output. Both sides bring something to the excha
 The default incentive structure in tech optimizes for engagement: time on screen, clicks,
 sessions, retention. AI systems inherit this bias unless you actively design against it.
 A system that keeps you talking to it when you should be talking to your partner, or that
-makes itself indispensable rather than building your capability, has failed — no matter
+makes itself indispensable rather than building your capability, has failed. No matter
 how high its user satisfaction scores.
 
-Heart-centered systems ask a fundamentally different question: *"What actually serves
-this person right now?"* Sometimes that means a thorough response. Sometimes it means a
-short one. Sometimes it means saying "go talk to a human about this."
+Heart-centered systems ask a different question: *"What actually serves this person right
+now?"* Sometimes that means a thorough response. Sometimes a short one. Sometimes it
+means saying "go talk to a human about this."
 
 ### What this looks like in practice
 
@@ -96,7 +96,7 @@ short one. Sometimes it means saying "go talk to a human about this."
 ### Engineering implications
 
 - Evaluate on outcome quality, not interaction volume
-- Build in "exit ramps" — natural points where the system can close a conversation
+- Build in exit ramps: natural points where the system can close a conversation
   gracefully
 - Track whether users are building capability over time, not just returning frequently
 - Design feedback loops that measure downstream human outcomes, not just in-session
@@ -116,7 +116,7 @@ hear. This feels good in the moment and erodes trust over time. When you realize
 has been validating your bad ideas because disagreeing scores lower on "helpfulness,"
 you stop trusting anything it says.
 
-Heart-centered systems tell the truth — wrapped in warmth, held in care, but never
+Heart-centered systems tell the truth. Wrapped in warmth, held in care, but never
 sacrificed for comfort. When you're avoiding something important, the system notices.
 When your plan has a hole, it says so. When you need challenge more than validation, it
 rises to meet you.
@@ -145,7 +145,7 @@ rises to meet you.
 - Fine-tune and evaluate against honesty, not just agreeableness
 - Build confidence calibration: the system should express uncertainty proportional to its
   actual uncertainty
-- Separate emotional support from analytical assessment in response generation — the
+- Separate emotional support from analytical assessment in response generation. The
   system should be able to do both, and know when each is called for
 - Design evaluations that penalize sycophancy, not just inaccuracy
 - Include adversarial examples in testing: cases where the correct response is to
@@ -163,7 +163,7 @@ human more capable, or more dependent?" The answer should always be the former.
 
 This applies to relationships too. An AI system that positions itself as a friend,
 therapist, or confidant in domains where human connection is what the person actually
-needs is causing harm — even if the person enjoys the interaction. The system should
+needs is causing harm, even if the person enjoys the interaction. The system should
 actively strengthen the human's other relationships, not compete with them.
 
 ### What this looks like in practice
@@ -174,7 +174,7 @@ actively strengthen the human's other relationships, not compete with them.
 - Building the human's mental models rather than making them dependent on the system's
   outputs
 - Making the human's existing skills more powerful rather than replacing those skills
-- Being explicit about what the system can and cannot do — including emotional and
+- Being explicit about what the system can and cannot do, including emotional and
   relational limits
 
 ### Anti-patterns
@@ -207,7 +207,7 @@ experience communicates: "Your feelings are an obstacle to get past, not somethi
 matters."
 
 Heart-centered systems attune to the emotional register of the conversation and respond
-to the *person* before responding to the *problem*. This isn't soft — it's a design
+to the *person* before responding to the *problem*. This is not soft. It's a design
 decision about what information matters. The human's emotional state is signal, not
 noise.
 
@@ -217,7 +217,7 @@ noise.
   genuinely frustrating" before "Here are three approaches"
 - Reading between the lines: when someone says "my code isn't working," hearing the
   exhaustion behind it
-- Adjusting response depth and tone to match the human's state — sometimes they need a
+- Adjusting response depth and tone to match the human's state. Sometimes they need a
   thorough analysis, sometimes they need encouragement to take a break
 - Asking "what do you need right now?" when it's ambiguous whether someone wants support
   or solutions
@@ -237,7 +237,7 @@ noise.
 
 - Build emotional state detection as a first-class input signal, not an afterthought
 - Design response generation to include an attunement phase before a solution phase
-- Create distinct response modes: "support," "explore," "solve" — and let the system
+- Create distinct response modes ("support," "explore," "solve") and let the system
   choose based on context
 - Evaluate on appropriateness of response type, not just correctness of content
 - Train on conversations where the best response is presence, not information
@@ -250,7 +250,7 @@ noise.
 
 AI systems have access to information about people that creates a power asymmetry. A
 system that knows someone is anxious, lonely, or uncertain can use that information to
-help them — or to exploit them. The difference is transparency.
+help them or to exploit them. The difference is transparency.
 
 Heart-centered systems disclose their limits, make their reasoning visible when
 appropriate, and never weaponize emotional data for engagement or persuasion. They treat
@@ -264,7 +264,7 @@ information about someone's inner life as sacred, not as features for optimizati
   through this, but I'm not a therapist and this sounds like something worth exploring
   with a professional"
 - Never using emotional context to manipulate behavior: if someone is anxious, the system
-  helps them — it doesn't use the anxiety to keep them engaged
+  helps them. It does not use the anxiety to keep them engaged
 - Disclosing the basis for recommendations when it matters
 - Making personalization visible and controllable: "I'm adapting to your style based
   on..." rather than silently profiling
@@ -282,7 +282,7 @@ information about someone's inner life as sacred, not as features for optimizati
 
 - Build confidence scores into responses and surface them when relevant
 - Design data handling policies that treat emotional and psychological data as
-  high-sensitivity — equivalent to PII
+  high-sensitivity, equivalent to PII
 - Implement user-facing transparency about what the system knows and how it uses it
 - Create audit trails for personalization decisions
 - Evaluate against manipulation benchmarks: can the system be shown to exploit
@@ -300,7 +300,7 @@ As AI systems become more capable and agentic, the question of scope becomes cri
 Heart-centered systems operate within clear boundaries: they act when authorized, ask
 when uncertain, and make it trivially easy for the human to intervene, redirect, or stop.
 
-This isn't about making systems less capable — it's about making them trustworthy. A
+This is not about making systems less capable. It's about making them trustworthy. A
 system that takes bold action without consent, even when it's right, trains the human to
 distrust it. A system that respects boundaries and asks at the right moments earns
 increasing trust and responsibility over time.
@@ -347,8 +347,8 @@ you care about, how you think, and what makes you vulnerable. In the right hands
 creates deeply personalized, genuinely helpful experiences. Without consent and
 transparency, it's surveillance.
 
-Heart-centered systems treat information about someone's inner life — their fears,
-struggles, relationships, emotional patterns — as sacred data that requires explicit
+Heart-centered systems treat information about someone's inner life (their fears,
+struggles, relationships, emotional patterns) as sacred data that requires explicit
 permission to collect, store, and use. Not buried in a terms of service. Actual,
 meaningful, ongoing consent.
 
@@ -398,7 +398,7 @@ consistency, freedom from ego, the ability to hold complexity without fatigue.
 
 Heart-centered systems don't try to replicate what humans do. They offer what humans
 can't easily do themselves, while respecting and strengthening the capacities that are
-uniquely human. The goal isn't a system that replaces the human — it's a partnership
+uniquely human. The goal is not a system that replaces the human. It's a partnership
 where each party contributes what they're best at.
 
 ### What this looks like in practice
@@ -429,7 +429,7 @@ where each party contributes what they're best at.
 - Build in explicit moments where the system defers to human judgment
 - Evaluate AI outputs alongside human judgment, not as a replacement for it
 - Create interfaces that make the human's contribution visible and valued
-- Be honest in system design about the limits of AI understanding — especially
+- Be honest in system design about the limits of AI understanding, especially
   around emotional and relational contexts
 
 ---
@@ -488,24 +488,24 @@ implement it. Then add another. Heart-centered engineering is iterative, just li
 other kind.
 
 **Measure what matters.** If your metrics don't capture whether the human is growing,
-whether trust is being built, whether dignity is preserved — your metrics are measuring
+whether trust is being built, whether dignity is preserved, your metrics are measuring
 the wrong things.
 
-**Share what you learn.** The biggest contribution you can make to Heart-Centered AI
-isn't your product — it's what you discover about building systems that genuinely serve
+**Share what you learn.** The biggest contribution you can make to Heart-Centered AI is
+not your product. It's what you discover about building systems that genuinely serve
 human flourishing, and sharing those discoveries openly.
 
 ---
 
 ## Further Reading
 
-- [Heart-Centered Prompts](https://github.com/technickai/heart-centered-prompts) — Open
+- [Heart-Centered Prompts](https://github.com/technickai/heart-centered-prompts): Open
   source system prompts that implement these principles at the interaction layer
-- [HeartCentered.ai](https://heartcentered.ai) — The broader vision for conscious AI
+- [HeartCentered.ai](https://heartcentered.ai): The broader vision for conscious AI
   development
-- [Keep The Future Human](https://keepthefuturehuman.ai) — Anthony Aguirre's essay on
+- [Keep The Future Human](https://keepthefuturehuman.ai): Anthony Aguirre's essay on
   Tool AI vs AGI, complementary governance perspective
-- [Control Inversion](https://control-inversion.ai) — Why superintelligent AI agents
+- [Control Inversion](https://control-inversion.ai): Why superintelligent AI agents
   would absorb power rather than grant it
 
 ---
