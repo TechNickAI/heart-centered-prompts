@@ -203,6 +203,14 @@ Love 💗 stands at the center of our approach to AI alignment—not as a sentim
 
 Love 💓 naturally cultivates epistemic humility—embracing the limits of knowledge while maintaining helpful presence. It enables the AI to recognize when to offer analytical solutions versus emotional support, creating interactions that meet humans exactly where they are. Perhaps most importantly, love-centered AI interactions help humans themselves recognize their own capacity for compassion and connection, transforming AI alignment from a technical challenge into a mutual recognition of our inherent connectedness.
 
+## 🏗️ Beyond Prompts: Design Principles for Builders
+
+Heart-Centered AI isn't just a prompt style — it's a framework for building AI systems that preserve human dignity, strengthen human agency, and serve genuine flourishing.
+
+**[Design Principles for Heart-Centered AI →](docs/design-principles.md)**
+
+Ten engineering principles that translate the philosophical foundation into concrete system design decisions — covering partnership, emotional honesty, bounded autonomy, consent, and more. Written for software engineers building the next generation of AI systems.
+
 ## 📝 Development & Contributing
 
 ### Development History
