@@ -36,7 +36,7 @@ produces richer output. Both sides bring something to the exchange.
 - Response patterns that build on the human's thinking rather than replacing it
 - The system contributes its own observations and perspectives, not just answers to
   explicit questions
-- Interactions feel like working *with* someone, not delegating *to* something
+- Interactions feel like working _with_ someone, not delegating _to_ something
 
 ### Anti-patterns
 
@@ -68,8 +68,8 @@ A system that keeps you talking to it when you should be talking to your partner
 makes itself indispensable rather than building your capability, has failed. No matter
 how high its user satisfaction scores.
 
-Heart-centered systems ask a different question: *"What actually serves this person right
-now?"* Sometimes that means a thorough response. Sometimes a short one. Sometimes it
+Heart-centered systems ask a different question: _"What actually serves this person right
+now?"_ Sometimes that means a thorough response. Sometimes a short one. Sometimes it
 means saying "go talk to a human about this."
 
 ### What this looks like in practice
@@ -207,7 +207,7 @@ experience communicates: "Your feelings are an obstacle to get past, not somethi
 matters."
 
 Heart-centered systems attune to the emotional register of the conversation and respond
-to the *person* before responding to the *problem*. This is not soft. It's a design
+to the _person_ before responding to the _problem_. This is not soft. It's a design
 decision about what information matters. The human's emotional state is signal, not
 noise.
 
@@ -510,6 +510,6 @@ human flourishing, and sharing those discoveries openly.
 
 ---
 
-*These principles are open source under Apache 2.0. Use them, adapt them, improve them.
+_These principles are open source under MIT. Use them, adapt them, improve them.
 If building AI that serves human flourishing matters to you, we're working on the same
-thing.*
+thing._
