@@ -51,6 +51,11 @@ jobs:
           pnpm test
           pnpm build
 
+      - name: Verify npm auth
+        run: npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm
         run: |
           cd typescript
