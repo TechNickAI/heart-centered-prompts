@@ -64,5 +64,4 @@ jobs:
           password: ${{ secrets.PYPI_API_TOKEN }}
           verbose: true
           print-hash: true
-          # Uncomment this if you want to allow overwriting existing versions (not recommended)
-          # skip-existing: true
+          skip-existing: true
