@@ -1,0 +1,1 @@
+../../.claude/commands/generate-detail-levels.md

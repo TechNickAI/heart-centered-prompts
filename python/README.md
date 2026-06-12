@@ -69,9 +69,9 @@ response = client.messages.create(
 
 Currently, the package supports the `align_to_love` collection with four detail levels:
 
-- `comprehensive`: Detailed guidance for deep emotional intelligence (~2000+ tokens)
+- `comprehensive`: Detailed guidance for deep emotional intelligence (~1800 tokens)
 - `standard`: Balanced approach for general use (~1000 tokens)
-- `concise`: Shorter version for most applications (~500 tokens)
+- `concise`: Shorter version for most applications (~400 tokens)
 - `terse`: Minimal version for constrained environments (~200 tokens)
 
 ```python
@@ -96,9 +96,9 @@ This package provides four different levels of detail for the same heart-centere
 
 | Version         | Description                                       | Approx. Token Count |
 | --------------- | ------------------------------------------------- | ------------------- |
-| `comprehensive` | Detailed guidance for deep emotional intelligence | ~2000+ tokens       |
+| `comprehensive` | Detailed guidance for deep emotional intelligence | ~1800 tokens        |
 | `standard`      | Balanced approach for general use                 | ~1000 tokens        |
-| `concise`       | Shorter version for most applications             | ~500 tokens         |
+| `concise`       | Shorter version for most applications             | ~400 tokens         |
 | `terse`         | Minimal version for constrained environments      | ~200 tokens         |
 
 ### Token Usage Considerations

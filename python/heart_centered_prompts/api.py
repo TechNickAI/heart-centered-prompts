@@ -16,9 +16,9 @@ def get_prompt(detail_level: DetailLevelType = "standard", collection: Collectio
     Args:
         detail_level: Controls the prompt's verbosity and complexity:
             - "terse": Minimal version (~200 tokens)
-            - "concise": Shorter version (~500 tokens)
+            - "concise": Shorter version (~400 tokens)
             - "standard": Balanced approach (~1000 tokens)
-            - "comprehensive": Detailed guidance (~2000+ tokens)
+            - "comprehensive": Detailed guidance (~1800 tokens)
 
         collection: The prompt collection to use:
             - "align_to_love": Heart-centered AI alignment prompts

@@ -21,9 +21,9 @@ const prompt = getPrompt();
 
 // Get a specific detail level
 const tersePrompt = getPrompt("terse"); // ~200 tokens
-const concisePrompt = getPrompt("concise"); // ~500 tokens
+const concisePrompt = getPrompt("concise"); // ~400 tokens
 const standardPrompt = getPrompt("standard"); // ~1000 tokens
-const fullPrompt = getPrompt("comprehensive"); // ~2000+ tokens
+const fullPrompt = getPrompt("comprehensive"); // ~1800 tokens
 
 // Use with Anthropic
 const response = await anthropic.messages.create({
