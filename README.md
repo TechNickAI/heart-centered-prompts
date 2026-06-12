@@ -44,7 +44,7 @@ Longer prompts consume more tokens and may slightly increase latency. For high-t
 1. Go to [ChatGPT settings](https://chatgpt.com/#settings/Personalization)
 2. Find the section that says "What traits should ChatGPT have?"
 3. Paste your chosen prompt in this field
-   - **Note:** ChatGPT has a 1,000 character limit, so use the [Concise version](https://raw.githubusercontent.com/technickai/heart-centered-prompts/main/prompts/align_to_love/concise.txt)
+   - **Note:** ChatGPT has a 1,000 character limit, so use the [Terse version](https://raw.githubusercontent.com/technickai/heart-centered-prompts/main/prompts/align_to_love/terse.txt)
 4. Click "Save"
 
 #### 🧠 Perplexity

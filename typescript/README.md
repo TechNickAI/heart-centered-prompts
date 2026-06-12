@@ -39,9 +39,9 @@ const response = await anthropic.messages.create({
 | Level         | Tokens | Use Case                    |
 | ------------- | ------ | --------------------------- |
 | terse         | ~200   | Character-limited platforms |
-| concise       | ~500   | Balanced for most apps      |
+| concise       | ~400   | Balanced for most apps      |
 | standard      | ~1000  | Recommended default         |
-| comprehensive | ~2000+ | Deep guidance               |
+| comprehensive | ~1800  | Deep guidance               |
 
 ## API
 

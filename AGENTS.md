@@ -28,8 +28,8 @@ Heart-centered system prompts for AI assistants - a Python package providing lov
 ## Commands
 
 ```bash
-# Tests
-cd python && pytest
+# Tests (sync prompts into the package first)
+cd python && python3 copy_prompts.py && pytest
 
 # Lint
 ruff check python/

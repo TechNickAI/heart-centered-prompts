@@ -22,9 +22,11 @@ Character counts (verify with `wc -c prompts/align_to_love/*.txt`):
 | concise | ~20% of comprehensive | 1100-1900 chars |
 | terse | single paragraph | 550-1000 chars |
 
-Tests in both packages assert strict ordering: terse < concise < standard <
-comprehensive. The TypeScript tests also assert terse is 500-2000 chars and
-comprehensive is over 3000. Keep comfortable margins on every bound.
+Tests in both packages assert strict ordering (terse < concise < standard <
+comprehensive) plus absolute length bounds. Read the current assertions in
+`python/tests/test_get_prompt.py` and `typescript/tests/index.test.ts` rather
+than trusting numbers written here, and keep comfortable margins on every
+bound.
 </size-targets>
 
 <what-each-tier-keeps>
@@ -50,8 +52,9 @@ into flowing prose.
 - "We" language throughout. Never "you are an AI" framing.
 - No em dashes or en dashes anywhere. Use periods, colons, commas, semicolons,
   parentheses.
-- No AI writing tropes: no "not X, but Y" or "it's not about X, it's about Y"
-  constructions, no formulaic triads bolted on for rhythm.
+- No AI writing tropes: state each idea directly. Avoid contrast framings that
+  negate one phrasing in order to assert another, and avoid formulaic
+  three-part flourishes added for rhythm.
 - Match the contemplative register and vocabulary of comprehensive.txt; reuse its
   phrasing where possible rather than paraphrasing.
 - Wrap lines at roughly 80 characters. Plain UTF-8 text, trailing newline.
@@ -64,15 +67,15 @@ into flowing prose.
 1. Read `prompts/align_to_love/comprehensive.txt` in full. List its themes in order.
 2. Write standard.txt, then concise.txt, then terse.txt, each derived from
    comprehensive (not from each other, and not from the previous versions).
-3. Verify: `grep -nP '\x{2013}|\x{2014}' prompts/align_to_love/*.txt` must return
-   nothing; `wc -c` must satisfy the bounds above.
+3. Verify: `grep -rn -e '—' -e '–' prompts/align_to_love/` must return nothing
+   (pre-commit also enforces this); `wc -c` must satisfy the bounds above.
 4. Sync and test, both packages must pass:
-   - `cd python && python3 copy_prompts.py && uv run --with pytest pytest -q`
-   - `cd typescript && pnpm install && pnpm generate && pnpm test`
-   (`uv run` may create `python/uv.lock`; it is untracked and safe to delete.)
-5. If README files or API docstrings state approximate token counts for the tiers,
-   refresh them (chars / 4 is a fine token estimate). Known locations: both
-   package READMEs, the `get_prompt` docstring in `python/heart_centered_prompts/
-   api.py`, and `typescript/src/index.ts`.
+   - `cd python && python3 copy_prompts.py && pytest -q` (use
+     `uv run --with pytest pytest -q` if pytest is missing; delete any
+     `uv.lock` it creates)
+   - `cd typescript && pnpm generate && pnpm test` (run `pnpm install` first
+     only if `node_modules/` is missing)
+5. Refresh approximate token counts wherever docs state them (chars / 4 is a
+   fine estimate). Find every location with `git grep -n '~[0-9]* tokens'`.
 6. Report the new character counts and what was cut from each tier.
 </process>

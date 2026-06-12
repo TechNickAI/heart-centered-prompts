@@ -27,6 +27,14 @@ repos:
     hooks:
       - id: fix-smartquotes
 
+  - repo: local
+    hooks:
+      - id: forbid-em-dashes-in-prompts
+        name: Forbid em and en dashes in prompt files
+        entry: '[–—]'
+        language: pygrep
+        files: ^prompts/.*\.txt$
+
   # Ruff replaces flake8, pylint, isort and more
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.11
