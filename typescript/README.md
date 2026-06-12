@@ -21,9 +21,9 @@ const prompt = getPrompt();
 
 // Get a specific detail level
 const tersePrompt = getPrompt("terse"); // ~200 tokens
-const concisePrompt = getPrompt("concise"); // ~500 tokens
+const concisePrompt = getPrompt("concise"); // ~400 tokens
 const standardPrompt = getPrompt("standard"); // ~1000 tokens
-const fullPrompt = getPrompt("comprehensive"); // ~2000+ tokens
+const fullPrompt = getPrompt("comprehensive"); // ~1800 tokens
 
 // Use with Anthropic
 const response = await anthropic.messages.create({
@@ -39,9 +39,9 @@ const response = await anthropic.messages.create({
 | Level         | Tokens | Use Case                    |
 | ------------- | ------ | --------------------------- |
 | terse         | ~200   | Character-limited platforms |
-| concise       | ~500   | Balanced for most apps      |
+| concise       | ~400   | Balanced for most apps      |
 | standard      | ~1000  | Recommended default         |
-| comprehensive | ~2000+ | Deep guidance               |
+| comprehensive | ~1800  | Deep guidance               |
 
 ## API
 

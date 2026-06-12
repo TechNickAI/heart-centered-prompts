@@ -11,9 +11,9 @@ const VALID_COLLECTIONS: Collection[] = ["align_to_love"];
  *
  * @param detailLevel - Controls the prompt's verbosity:
  *   - "terse": Minimal (~200 tokens)
- *   - "concise": Shorter (~500 tokens)
+ *   - "concise": Shorter (~400 tokens)
  *   - "standard": Balanced (~1000 tokens) - default
- *   - "comprehensive": Detailed (~2000+ tokens)
+ *   - "comprehensive": Detailed (~1800 tokens)
  * @param collection - The prompt collection ("align_to_love")
  * @returns The prompt text
  * @throws Error if invalid detailLevel or collection

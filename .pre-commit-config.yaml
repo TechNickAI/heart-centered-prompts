@@ -27,6 +27,18 @@ repos:
     hooks:
       - id: fix-smartquotes
 
+  # Em and en dashes are banned in prose repo-wide. Vendored ai-coding-config
+  # files (.claude/, .cursor/ except our own rules) are excluded; they get
+  # overwritten on config sync and should be fixed upstream.
+  - repo: local
+    hooks:
+      - id: forbid-em-dashes
+        name: Forbid em and en dashes
+        entry: '\xe2\x80[\x93\x94]'
+        language: pygrep
+        types: [text]
+        exclude: ^(\.claude/agents/|\.claude/commands/(?!generate-detail-levels\.md)|\.cursor/commands/|\.cursor/rules/personalities/)
+
   # Ruff replaces flake8, pylint, isort and more
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.11.11
