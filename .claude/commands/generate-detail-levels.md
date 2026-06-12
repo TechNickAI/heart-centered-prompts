@@ -67,8 +67,8 @@ into flowing prose.
 1. Read `prompts/align_to_love/comprehensive.txt` in full. List its themes in order.
 2. Write standard.txt, then concise.txt, then terse.txt, each derived from
    comprehensive (not from each other, and not from the previous versions).
-3. Verify: `grep -rn -e '—' -e '–' prompts/align_to_love/` must return nothing
-   (pre-commit also enforces this); `wc -c` must satisfy the bounds above.
+3. Verify: `pre-commit run forbid-em-dashes --all-files` must pass; `wc -c`
+   must satisfy the bounds above.
 4. Sync and test, both packages must pass:
    - `cd python && python3 copy_prompts.py && pytest -q` (use
      `uv run --with pytest pytest -q` if pytest is missing; delete any
