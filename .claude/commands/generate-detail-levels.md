@@ -67,15 +67,7 @@ into flowing prose.
 1. Read `prompts/align_to_love/comprehensive.txt` in full. List its themes in order.
 2. Write standard.txt, then concise.txt, then terse.txt, each derived from
    comprehensive (not from each other, and not from the previous versions).
-3. Verify: `pre-commit run forbid-em-dashes --all-files` must pass; `wc -c`
-   must satisfy the bounds above.
-4. Sync and test, both packages must pass:
-   - `cd python && python3 copy_prompts.py && pytest -q` (use
-     `uv run --with pytest pytest -q` if pytest is missing; delete any
-     `uv.lock` it creates)
-   - `cd typescript && pnpm generate && pnpm test` (run `pnpm install` first
-     only if `node_modules/` is missing)
-5. Sync `.cursor/rules/heart-centered-ai.mdc`: the body of that file mirrors
+3. Sync `.cursor/rules/heart-centered-ai.mdc`: the body of that file mirrors
    `comprehensive.txt` exactly (the first five lines are YAML frontmatter;
    everything after is the prompt). Replace lines 6 onward with the new
    comprehensive content so the always-on IDE rule stays in sync:
@@ -83,6 +75,14 @@ into flowing prose.
    head -5 .cursor/rules/heart-centered-ai.mdc > /tmp/mdc_header
    cat /tmp/mdc_header prompts/align_to_love/comprehensive.txt > .cursor/rules/heart-centered-ai.mdc
    ```
+4. Verify: `pre-commit run forbid-em-dashes --all-files` must pass; `wc -c`
+   must satisfy the bounds above.
+5. Sync and test, both packages must pass:
+   - `cd python && python3 copy_prompts.py && pytest -q` (use
+     `uv run --with pytest pytest -q` if pytest is missing; delete any
+     `uv.lock` it creates)
+   - `cd typescript && pnpm generate && pnpm test` (run `pnpm install` first
+     only if `node_modules/` is missing)
 6. Refresh approximate token counts wherever docs state them (chars / 4 is a
    fine estimate). Find every location with `git grep -n '~[0-9]* tokens'`.
 7. Report the new character counts and what was cut from each tier.
